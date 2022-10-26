@@ -1,17 +1,24 @@
-import { SAVEUSER_TWEETS, DELUSER_TWEETS, NEWUSER_TWEETS, UPDATEUSER_TWEETS } from "../actions/getUserTweetsAction";
+import {
+  SAVEUSER_TWEETS,
+  DELUSER_TWEETS,
+  NEWUSER_TWEETS,
+  UPDATEUSER_TWEETS,
+} from "../actions/getUserTweetsAction";
 import { removeStorage, setStorage, getStorage } from "../../localStorage";
 
 const usertweet = getStorage("usertweets");
 
-const initialState = usertweet ?  usertweet : [];
+const initialState = usertweet ? usertweet : [];
 
 const getAllUserTweets = (state = initialState, action) => {
   switch (action.type) {
-      case UPDATEUSER_TWEETS:
-        const index = state.findIndex(state => state.TEXTID === action.payload.TEXTID);
-        const updatedTweet = [...state];
-        updatedTweet[index] = action.payload
-        return updatedTweet
+    case UPDATEUSER_TWEETS:
+      const index = state.findIndex(
+        (state) => state.TEXTID === action.payload.TEXTID
+      );
+      const updatedTweet = [...state];
+      updatedTweet[index] = action.payload;
+      return updatedTweet;
 
     case NEWUSER_TWEETS:
       setStorage("usertweets", [...state, action.payload]);

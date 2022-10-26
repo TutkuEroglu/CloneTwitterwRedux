@@ -1,5 +1,5 @@
 import React from "react";
-import "../Navbar/index.css";
+import "./index.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "../../redux/actions";
@@ -9,7 +9,7 @@ import { delUserTweets } from "../../redux/actions/getUserTweetsAction";
 const Navbar = () => {
   const { USERNAME } = useSelector((state) => state.AUTH);
   const isNotify = useSelector((state) => state?.Notify.isNotification);
-  
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -25,8 +25,8 @@ const Navbar = () => {
   };
 
   const notify = () => {
-    navigate("/notifications")
-  }
+    navigate("/notifications");
+  };
 
   return (
     <>
@@ -39,7 +39,7 @@ const Navbar = () => {
       <div className="SideBarButtons" onClick={notify}>
         <div className="SideBarIcons">
           <i className="bi bi-bell"></i>
-          { isNotify ? <i className="bi bi-circle-fill notify"></i> : ""}
+          {isNotify ? <i className="bi bi-circle-fill notify"></i> : ""}
         </div>
         <div className="SideBarNames">Bildirimler</div>
       </div>

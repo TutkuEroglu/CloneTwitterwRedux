@@ -1,14 +1,14 @@
-import React from 'react'
-import "../Profile/ProfilePage.css"
+import React from "react";
+import "./ProfilePage.css";
 import Navbar from "../../Components/Navbar";
 import TopProfile from "../../Components/ProfileBar/TopProfile";
-import RightBar from '../../Components/RightPageBar/RightBar';
+import RightBar from "../../Components/RightPageBar/RightBar";
 
 const ProfilePage = () => {
   return (
     <div className="SiteBg">
       <div className="LeftContainer">
-        <Navbar/>
+        <Navbar />
       </div>
       <div className="MiddleContainer">
         <TopProfile />
@@ -17,7 +17,7 @@ const ProfilePage = () => {
         <RightBar />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default ProfilePage;

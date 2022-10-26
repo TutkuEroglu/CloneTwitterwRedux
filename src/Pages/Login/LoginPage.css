@@ -1,9 +1,9 @@
 .LoginPage {
     display: grid;
-    grid-template-columns: 74% 1fr;
+    grid-template-columns: 68% 1fr;
     height: 100%;
     width: 100%;
-    grid-gap: 20px;
+    background-color: black;
 }
 
 .loginLeftContainer {
@@ -33,6 +33,7 @@
     align-items: flex-start;
     box-sizing: border-box;
     max-width: 700px;
+    padding: 0 20px;
 }
 
 .loginHeader {

@@ -1,5 +1,5 @@
 import React from "react";
-import "../getUserTweets/getUserTweets.css";
+import "./getUserTweets.css";
 import ProfileImage from "../../Assets/Images/user.png";
 import TweetBtnLists from "../../Lists/TweetBtnLists";
 import { useSelector, useDispatch } from "react-redux";
@@ -9,36 +9,35 @@ import { setNotify } from "../../redux/actions/notify";
 
 const GetUserTweets = () => {
   const dispatch = useDispatch();
-  const {USERNAME} = useSelector((state) => state?.AUTH);
+  const { USERNAME } = useSelector((state) => state?.AUTH);
   const tweets = useSelector((state) => state?.USERTWEETS);
 
   const likeTweet = async (TEXTID) => {
     const index = tweets.findIndex((tweets) => tweets.TEXTID === TEXTID);
     if (tweets[index].ISLIKED === 0) {
-        const data = {
-          TEXTID: TEXTID,
-          OWNER: tweets[index].OWNER,
-          TEXT: tweets[index].TEXT,
-          DATE: tweets[index].DATE,
-          ISLIKED: 1,
-          LIKEAMOUNT: 1,
-          
-        };
-          dispatch(updateUserTweets(data));
-          if (tweets[index].OWNER === USERNAME) {
-            dispatch(setNotify(true))
-          }
-    }  else {
-        const data2 = {
-          TEXTID: TEXTID,
-          OWNER: tweets[index].OWNER,
-          TEXT: tweets[index].TEXT,
-          DATE: tweets[index].DATE,
-          ISLIKED: 0,
-          LIKEAMOUNT: 0,
-        };
-        dispatch(updateUserTweets(data2));
+      const data = {
+        TEXTID: TEXTID,
+        OWNER: tweets[index].OWNER,
+        TEXT: tweets[index].TEXT,
+        DATE: tweets[index].DATE,
+        ISLIKED: 1,
+        LIKEAMOUNT: 1,
+      };
+      dispatch(updateUserTweets(data));
+      if (tweets[index].OWNER === USERNAME) {
+        dispatch(setNotify(true));
       }
+    } else {
+      const data2 = {
+        TEXTID: TEXTID,
+        OWNER: tweets[index].OWNER,
+        TEXT: tweets[index].TEXT,
+        DATE: tweets[index].DATE,
+        ISLIKED: 0,
+        LIKEAMOUNT: 0,
+      };
+      dispatch(updateUserTweets(data2));
+    }
   };
 
   return (
@@ -52,8 +51,10 @@ const GetUserTweets = () => {
               alt={"ProfilePic"}
             />
             <div className="TextArea">
-              <span className="textUsername">{val?.OWNER}</span>·  
-              <span className="textDate">{formatDate(val?.DATE, "isTodayOrTomorrow")}</span>
+              <span className="textUsername">{val?.OWNER}</span>·
+              <span className="textDate">
+                {formatDate(val?.DATE, "isTodayOrTomorrow")}
+              </span>
               <br />
               <span className="textText">{val?.TEXT}</span>
             </div>
@@ -72,17 +73,26 @@ const GetUserTweets = () => {
                 likeTweet(val?.TEXTID);
               }}
             >
-              <i className={val?.ISLIKED === 0 ? "bi bi-heart heart" : "bi bi-heart-fill likedHeart"}></i>
- 
-              <span className={val?.ISLIKED === 0 ? "likeAmount" : "likeAmountActive"}>{val.LIKEAMOUNT === 0 ? "" : val.LIKEAMOUNT}</span>
+              <i
+                className={
+                  val?.ISLIKED === 0
+                    ? "bi bi-heart heart"
+                    : "bi bi-heart-fill likedHeart"
+                }
+              ></i>
 
+              <span
+                className={
+                  val?.ISLIKED === 0 ? "likeAmount" : "likeAmountActive"
+                }
+              >
+                {val.LIKEAMOUNT === 0 ? "" : val.LIKEAMOUNT}
+              </span>
             </div>
-            
 
             <div className="IconArea" title={"Paylaş"}>
               <i className="bi bi-share share"></i>
-            </div>  
-          
+            </div>
           </div>
         </div>
       ))}

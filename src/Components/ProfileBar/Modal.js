@@ -5,9 +5,16 @@ import { useSelector, useDispatch } from "react-redux";
 import { signIn } from "../../redux/actions";
 
 const Modal = ({ open, onClose }) => {
-  const { USERID, USERNAME, AUTHORITY, NAME, INFORMATION, LOCATION, WEBSITE, BIRTHDAY } = useSelector(
-    (state) => state.AUTH
-  );
+  const {
+    USERID,
+    USERNAME,
+    AUTHORITY,
+    NAME,
+    INFORMATION,
+    LOCATION,
+    WEBSITE,
+    BIRTHDAY,
+  } = useSelector((state) => state.AUTH);
   const dispatch = useDispatch();
 
   const [name, setName] = useState(NAME);
@@ -16,34 +23,58 @@ const Modal = ({ open, onClose }) => {
   const [webSite, setWebSite] = useState(WEBSITE);
   const [visibility, setVisibility] = useState(true);
   const birthdayArray = BIRTHDAY.split(" ");
-  const [selectedDay, setSelectedDay] = useState(BIRTHDAY === "" ? "" : birthdayArray[0]);
-  const [selectedMonth, setSelectedMonth] = useState(BIRTHDAY === "" ? "" : birthdayArray[1]);
-  const [selectedYear, setSelectedYear] = useState(BIRTHDAY === "" ? "" : birthdayArray[2]);
-  const dayOptions = [1, 2, 3, 4, 5, 6, 7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
-  const monthOptions = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
-  const yearOptions = [1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005];
-  
+  const [selectedDay, setSelectedDay] = useState(
+    BIRTHDAY === "" ? "" : birthdayArray[0]
+  );
+  const [selectedMonth, setSelectedMonth] = useState(
+    BIRTHDAY === "" ? "" : birthdayArray[1]
+  );
+  const [selectedYear, setSelectedYear] = useState(
+    BIRTHDAY === "" ? "" : birthdayArray[2]
+  );
+  const dayOptions = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+    22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
+  ];
+  const monthOptions = [
+    "Ocak",
+    "Şubat",
+    "Mart",
+    "Nisan",
+    "Mayıs",
+    "Haziran",
+    "Temmuz",
+    "Ağustos",
+    "Eylül",
+    "Ekim",
+    "Kasım",
+    "Aralık",
+  ];
+  const yearOptions = [
+    1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001,
+    2002, 2003, 2004, 2005,
+  ];
 
   const SaveInfo = (e) => {
     e.preventDefault();
-      const date = (selectedDay + " " + selectedMonth + " " +  selectedYear)
-      const data = {
-        USERID: USERID,
-        USERNAME: USERNAME,
-        AUTHORITY: AUTHORITY,
-        NAME: name,
-        INFORMATION: information,
-        LOCATION: location,
-        WEBSITE: webSite,
-        BIRTHDAY: date,
-      }
+    const date = selectedDay + " " + selectedMonth + " " + selectedYear;
+    const data = {
+      USERID: USERID,
+      USERNAME: USERNAME,
+      AUTHORITY: AUTHORITY,
+      NAME: name,
+      INFORMATION: information,
+      LOCATION: location,
+      WEBSITE: webSite,
+      BIRTHDAY: date,
+    };
     dispatch(signIn(data));
-    setVisibility(true)
-  }; 
+    setVisibility(true);
+  };
 
   const setVis = () => {
-    setVisibility(!visibility)
-  }
+    setVisibility(!visibility);
+  };
 
   return (
     <div
@@ -151,36 +182,49 @@ const Modal = ({ open, onClose }) => {
 
               <div className="userBirth">
                 <span className="userSpan">Doğum tarihi · </span>
-                <span className="editSpan mb-3" onClick={setVis}>{visibility ? "Düzenle" : "Iptal"}</span> <br />
-                
-                {visibility ? <span className="birthDaySpan">{BIRTHDAY}</span> : 
-                <>
-                <div className="select">
-                <select id="inputState" className="form-select selectMonth" onChange={(e) => setSelectedMonth(e.target.value)} defaultValue={birthdayArray[1]}>
-                  {monthOptions.map((option, index) => {
-                        return <option key={index}>
-                            {option}
-                        </option>
-                    })}
-                  </select>
-                  <select id="inputState" className="form-select selectDay" onChange={(e) => setSelectedDay(e.target.value)} defaultValue={birthdayArray[0]}>
-                  {dayOptions.map((option, index) => {
-                        return <option key={index}>
-                            {option}
-                        </option>
-                    })}
-                  </select>
-                  <select id="inputState" className="form-select selectYear" onChange={(e) => setSelectedYear(e.target.value)} defaultValue={birthdayArray[2]}>
-                  {yearOptions.map((option, index) => {
-                        return <option key={index}>
-                            {option}
-                        </option>
-                    })}
-                  </select>
-                  </div>
-                </>}
-            <div>
-            </div>
+                <span className="editSpan mb-3" onClick={setVis}>
+                  {visibility ? "Düzenle" : "Iptal"}
+                </span>{" "}
+                <br />
+                {visibility ? (
+                  <span className="birthDaySpan">{BIRTHDAY}</span>
+                ) : (
+                  <>
+                    <div className="select">
+                      <select
+                        id="inputState"
+                        className="form-select selectMonth"
+                        onChange={(e) => setSelectedMonth(e.target.value)}
+                        defaultValue={birthdayArray[1]}
+                      >
+                        {monthOptions.map((option, index) => {
+                          return <option key={index}>{option}</option>;
+                        })}
+                      </select>
+                      <select
+                        id="inputState"
+                        className="form-select selectDay"
+                        onChange={(e) => setSelectedDay(e.target.value)}
+                        defaultValue={birthdayArray[0]}
+                      >
+                        {dayOptions.map((option, index) => {
+                          return <option key={index}>{option}</option>;
+                        })}
+                      </select>
+                      <select
+                        id="inputState"
+                        className="form-select selectYear"
+                        onChange={(e) => setSelectedYear(e.target.value)}
+                        defaultValue={birthdayArray[2]}
+                      >
+                        {yearOptions.map((option, index) => {
+                          return <option key={index}>{option}</option>;
+                        })}
+                      </select>
+                    </div>
+                  </>
+                )}
+                <div></div>
               </div>
             </form>
           </div>

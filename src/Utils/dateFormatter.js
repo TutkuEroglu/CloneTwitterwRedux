@@ -79,7 +79,7 @@ export const formatDate = (date, type) => {
     const todayDay = String(today?.getDate()).padStart(2, "0");
     const todayHour = String(today?.getHours()).padStart(2, "0");
     const todayMinutes = String(today?.getMinutes()).padStart(2, "0");
-    if ( 
+    if (
       hh === todayHour &&
       todayMinutes - MM < 1 &&
       dd === todayDay &&
@@ -89,7 +89,7 @@ export const formatDate = (date, type) => {
       return "Hemen şimdi";
     }
 
-    if ( 
+    if (
       hh === todayHour &&
       todayMinutes - MM < 2 &&
       dd === todayDay &&
@@ -99,7 +99,7 @@ export const formatDate = (date, type) => {
       return "1 dakika önce";
     }
 
-    if ( 
+    if (
       hh === todayHour &&
       todayMinutes - MM < 6 &&
       dd === todayDay &&
@@ -109,7 +109,7 @@ export const formatDate = (date, type) => {
       return "5 dakika önce";
     }
 
-    if ( 
+    if (
       hh === todayHour &&
       todayMinutes - MM < 31 &&
       dd === todayDay &&
@@ -119,7 +119,7 @@ export const formatDate = (date, type) => {
       return "30 dakika önce";
     }
 
-    if ( 
+    if (
       todayHour - hh < 2 &&
       dd === todayDay &&
       day?.getMonth() === today?.getMonth() &&
@@ -128,7 +128,7 @@ export const formatDate = (date, type) => {
       return "1 saat önce";
     }
 
-    if ( 
+    if (
       todayHour - hh < 7 &&
       dd === todayDay &&
       day?.getMonth() === today?.getMonth() &&
@@ -137,7 +137,7 @@ export const formatDate = (date, type) => {
       return "6 saat önce";
     }
 
-    if ( 
+    if (
       todayHour - hh < 13 &&
       dd === todayDay &&
       day?.getMonth() === today?.getMonth() &&
@@ -146,7 +146,7 @@ export const formatDate = (date, type) => {
       return "12 saat önce";
     }
 
-    if ( 
+    if (
       todayHour - hh < 19 &&
       dd === todayDay &&
       day?.getMonth() === today?.getMonth() &&

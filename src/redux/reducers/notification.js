@@ -3,11 +3,13 @@ import { removeStorage, setStorage, getStorage } from "../../localStorage";
 
 const notify = getStorage("notification");
 
-const initialState =  notify ? {
-        isNotification: notify,
-    } : {
-        isNotification: false
+const initialState = notify
+  ? {
+      isNotification: notify,
     }
+  : {
+      isNotification: false,
+    };
 
 const notification = (state = initialState, action) => {
   switch (action.type) {

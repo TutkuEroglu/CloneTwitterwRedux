@@ -4,29 +4,47 @@ import ButtonList from "../../Lists/ButtonLists";
 import ProfileImage from "../../Assets/Images/user.png";
 import { useDispatch, useSelector } from "react-redux";
 import { newTweets } from "../../redux/actions/getTweetsAction";
-import { formatDate } from "../../Utils/dateFormatter"
-import { newUserTweets } from "../../redux/actions/getUserTweetsAction"
+import { formatDate } from "../../Utils/dateFormatter";
+import { newUserTweets } from "../../redux/actions/getUserTweetsAction";
 
 const SendTweet = () => {
   const { USERNAME } = useSelector((state) => state.AUTH);
   const dispatch = useDispatch();
 
-  const [text, setText] = useState("")
-  const [textid, setTextID] = useState(0)
-  const [usertextid, setUserTextID] = useState(1)
+  const [text, setText] = useState("");
+  const [textid, setTextID] = useState(0);
+  const [usertextid, setUserTextID] = useState(1);
 
   const tweet = (e) => {
     if (text === "") {
-      alert("boş twit atamazsın!")
+      alert("boş twit atamazsın!");
     } else {
       e.preventDefault();
       const today = new Date();
-      const date = formatDate(today, "withHour")
-      setTextID(textid+1)
-      setUserTextID(usertextid+1)
-      dispatch(newTweets({TEXTID:textid+1,TEXT:text,OWNER:USERNAME,DATE:date,LIKEAMOUNT:0,ISLIKED:0})); 
-      dispatch(newUserTweets({TEXTID:usertextid+1,TEXT:text,OWNER:USERNAME,DATE:date,LIKEAMOUNT:0,ISLIKED:0})); 
-      setText("")
+      const date = formatDate(today, "withHour");
+      setTextID(textid + 1);
+      setUserTextID(usertextid + 1);
+      dispatch(
+        newTweets({
+          TEXTID: textid + 1,
+          TEXT: text,
+          OWNER: USERNAME,
+          DATE: date,
+          LIKEAMOUNT: 0,
+          ISLIKED: 0,
+        })
+      );
+      dispatch(
+        newUserTweets({
+          TEXTID: usertextid + 1,
+          TEXT: text,
+          OWNER: USERNAME,
+          DATE: date,
+          LIKEAMOUNT: 0,
+          ISLIKED: 0,
+        })
+      );
+      setText("");
     }
   };
 
@@ -50,7 +68,11 @@ const SendTweet = () => {
             ))}
           </div>
           <div className="TweetSendBtn">
-            <button type="button" className="btn btn-primary btnPrimary" onClick={tweet}>
+            <button
+              type="button"
+              className="btn btn-primary btnPrimary"
+              onClick={tweet}
+            >
               Tweetle
             </button>
           </div>

@@ -11,7 +11,8 @@ const TopProfile = () => {
   const [openModal, setOpenModal] = useState(false);
   const visibility = useState(true);
 
-  const { USERNAME, NAME, INFORMATION, LOCATION, WEBSITE, BIRTHDAY } = useSelector((state) => state.AUTH);
+  const { USERNAME, NAME, INFORMATION, LOCATION, WEBSITE, BIRTHDAY } =
+    useSelector((state) => state.AUTH);
   const tweets = useSelector((state) => state.USERTWEETS);
   const navigate = useNavigate();
 
@@ -19,7 +20,7 @@ const TopProfile = () => {
     navigate("/home");
   };
 
-  let length =  tweets.length;
+  let length = tweets.length;
 
   return (
     <div className="TopProfileContainer">
@@ -81,7 +82,9 @@ const TopProfile = () => {
             ) : (
               <>
                 <i className="bi bi-balloon balloon"></i>{" "}
-                <span className="profileBirthDay">Doğum tarihi: {BIRTHDAY}</span>
+                <span className="profileBirthDay">
+                  Doğum tarihi: {BIRTHDAY}
+                </span>
               </>
             )}
             <i className="bi bi-calendar3 calendar"></i>{" "}
@@ -100,9 +103,15 @@ const TopProfile = () => {
 
         <div className="profileCategory">
           <Modal open={openModal} onClose={() => setOpenModal(false)} />
-            <div className="profileCategoryBtns">
-              <span className={visibility ? "profileCategoryTextActive" : "profileCategoryText"}>Tweetler</span>
-            </div>
+          <div className="profileCategoryBtns">
+            <span
+              className={
+                visibility ? "profileCategoryTextActive" : "profileCategoryText"
+              }
+            >
+              Tweetler
+            </span>
+          </div>
           {ProfileButtons.map((val) => (
             <div className="profileCategoryBtns" key={val.id}>
               <span className="profileCategoryText">{val.text}</span>
