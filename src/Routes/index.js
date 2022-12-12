@@ -22,16 +22,16 @@ const Routing = () => {
     <BrowserRouter>
       {isAuthorized ? (
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path={"/home"} exact element={<HomePage />} />
-          <Route path={`/${USERNAME}`} exact element={<ProfilePage />} />
-          <Route path={"/notifications"} exact element={<Notify />} />
+          <Route path="/CloneTwitterwRedux/" element={<HomePage />} />
+          <Route path={"/CloneTwitterwRedux/home"} exact element={<HomePage />} />
+          <Route path={`/CloneTwitterwRedux/${USERNAME}`} exact element={<ProfilePage />} />
+          <Route path={"/CloneTwitterwRedux/notifications"} exact element={<Notify />} />
         </Routes>
       ) : (
         <Routes>
-          <Route index path={"/"} exact element={<LoginPage />} />
+          <Route index path={"/CloneTwitterwRedux/"} exact element={<LoginPage />} />
           <Route path="*" element={<p>Path not resolved</p>} />
-          <Route path={"/login"} element={<LoginPage />} />
+          <Route path={"/CloneTwitterwRedux/login"} element={<LoginPage />} />
         </Routes>
       )}
     </BrowserRouter>
