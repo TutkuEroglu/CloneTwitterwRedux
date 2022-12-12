@@ -17,15 +17,15 @@ const Navbar = () => {
     dispatch(signOut());
     dispatch(delTweets());
     dispatch(delUserTweets());
-    navigate("/login");
+    navigate("/CloneTwitterwRedux/");
   };
 
   const profile = () => {
-    navigate(`/${USERNAME}`);
+    navigate(`/CloneTwitterwRedux/${USERNAME}`);
   };
 
   const notify = () => {
-    navigate("/notifications");
+    navigate("/CloneTwitterwRedux/notifications");
   };
 
   return (

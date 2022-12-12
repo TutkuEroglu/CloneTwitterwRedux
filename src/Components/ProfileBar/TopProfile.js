@@ -17,7 +17,7 @@ const TopProfile = () => {
   const navigate = useNavigate();
 
   const goBack = () => {
-    navigate("/home");
+    navigate("/CloneTwitterwRedux/");
   };
 
   let length = tweets.length;

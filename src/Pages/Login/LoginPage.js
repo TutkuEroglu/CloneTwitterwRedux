@@ -26,7 +26,7 @@ const LoginPage = () => {
       BIRTHDAY: "",
     };
     dispatch(signIn(data));
-    navigate("/home");
+    navigate("/CloneTwitterwRedux/");
   };
 
   return (
