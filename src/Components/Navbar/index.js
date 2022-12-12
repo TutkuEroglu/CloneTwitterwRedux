@@ -30,7 +30,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="SideBarButtons" onClick={() => navigate("/home")}>
+      <div className="SideBarButtons" onClick={() => navigate("/CloneTwitterwRedux/home")}>
         <div className="SideBarIcons">
           <i className="bi bi-house-door"></i>
         </div>
