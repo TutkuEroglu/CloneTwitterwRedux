@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/CloneTwitterwRedux/static/css/main.ac5efe64.css",
-    "main.js": "/CloneTwitterwRedux/static/js/main.f6071ac1.js",
+    "main.js": "/CloneTwitterwRedux/static/js/main.fa6933fd.js",
     "static/media/login.png": "/CloneTwitterwRedux/static/media/login.36dbbe347e30e4be16a2.png",
     "static/media/userPic.jpg": "/CloneTwitterwRedux/static/media/userPic.7946968082aa9df2bdca.jpg",
     "static/media/react.png": "/CloneTwitterwRedux/static/media/react.e310fdba3cc970b15d75.png",
@@ -9,10 +9,10 @@
     "static/media/node.png": "/CloneTwitterwRedux/static/media/node.8e341cc00e4ec40c6a27.png",
     "index.html": "/CloneTwitterwRedux/index.html",
     "main.ac5efe64.css.map": "/CloneTwitterwRedux/static/css/main.ac5efe64.css.map",
-    "main.f6071ac1.js.map": "/CloneTwitterwRedux/static/js/main.f6071ac1.js.map"
+    "main.fa6933fd.js.map": "/CloneTwitterwRedux/static/js/main.fa6933fd.js.map"
   },
   "entrypoints": [
     "static/css/main.ac5efe64.css",
-    "static/js/main.f6071ac1.js"
+    "static/js/main.fa6933fd.js"
   ]
 }
