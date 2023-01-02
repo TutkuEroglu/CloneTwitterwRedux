@@ -8,6 +8,7 @@ import RightBar from "../../Components/RightPageBar/RightBar";
 const HomePage = () => {
   return (
     <div className="SiteBg">
+      <div className="ContainerSite">
       <div className="LeftContainer">
         <Navbar />
       </div>
@@ -17,6 +18,7 @@ const HomePage = () => {
       </div>
       <div className="RightContainer">
         <RightBar />
+      </div>
       </div>
     </div>
   );

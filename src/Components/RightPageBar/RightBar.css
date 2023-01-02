@@ -167,10 +167,10 @@
 
   .topicHeader {
     font-size: 19px;
-    height: 50px;
+    height: 30px;
     font-weight: 800;
     display: flex;
-    padding: 0 0 0 20px;
+    padding: 10px 0 0 20px;
     box-sizing: border-box;
     align-items: center;
     color: white;

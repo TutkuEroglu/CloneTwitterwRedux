@@ -35,12 +35,6 @@ const topicInterestList = [
     tag: "#Akbank",
     number: "23.315 Tweet",
   },
-  {
-    id: 7,
-    location: "Türkiye tarihinde gündemde",
-    tag: "Asgari",
-    number: "9.136 Tweet",
-  },
 ];
 
 export default topicInterestList;
