@@ -1,8 +1,8 @@
 .LoginPage {
-    display: flex;
+    display: grid;
+    grid-template-columns: 68% 1fr;
     height: 100vh;
     width: 100vw;
-    background-color: black;
 }
 
 .loginLeftContainer {
